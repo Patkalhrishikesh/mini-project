@@ -9,33 +9,31 @@ export default function App() {
 }
 
 function Hello() {
-  let counter = 1000;
-  const like = () => {
-    counter++;
-    console.log(counter);
-  };
-  //uses of hooks use stase;
+  const [username, setUsername] = useState("rohit");
+  const [password, setPassword] = useState("123");
 
-  let [counter1, setCounter1] = useState(100);
-
-  const like1 = () => {
-    const newCounter1 = counter1 + 1;
-    setCounter1(newCounter1);
+  const handleUsername = (e) => {
+    const newusername = e.target.value;
+    setUsername(newusername);
   };
-  // EVERY MOVEMENT CHANGING STATE CHANGING STATE
-  // RHS :: SPECIAL FUNCTION :: STARTWITH PREFIX USESTATE USEEFFECT
-  // USEsTATE :: IT WORK WITH DOM INTERNALLY
+
+  const handlepassword = (e) => {
+    const newpassword = e.target.value;
+    setPassword(newpassword);
+  };
+
   return (
     <div>
-      <h1>
-        Counter : {counter}
-        <button onClick={like}>liKE</button>
-      </h1>
+      <input type="text" value={username} onChange={handleUsername} />
+      <input type="password" value={password} onChange={handlepassword} />
 
       <h1>
-        Counter1 : {counter1}
-        <button onClick={like1}>liKE</button>
+        {username} {password}
       </h1>
+      <hr />
+
+      <h1>{username}</h1>
+      <hr />
     </div>
   );
 }
