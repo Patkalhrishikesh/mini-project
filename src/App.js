@@ -4,7 +4,7 @@ import "./App.css";
 function App() {
   return (
     <div>
-      <Hello />
+      <Hello id="1" name="rahul" />
       <Hello />
       <World />
     </div>
@@ -14,8 +14,11 @@ function App() {
 //jsx :: react componant
 // <hello/>
 
-function Hello() {
-  return <h1>hello </h1>;
+// Hello(1);
+//
+function Hello(p1) {
+  console.log(p1);
+  return <h1>hello ! {p1.name} </h1>;
 }
 
 function World() {
