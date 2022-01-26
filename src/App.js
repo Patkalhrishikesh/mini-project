@@ -3,37 +3,32 @@ import { useState } from "react";
 export default function App() {
   return (
     <div>
-      <Hello />
+      <Page1 />
+      <Page2 />
     </div>
   );
 }
 
-function Hello() {
-  const [username, setUsername] = useState("rohit");
-  const [password, setPassword] = useState("123");
-
-  const handleUsername = (e) => {
-    const newusername = e.target.value;
-    setUsername(newusername);
-  };
-
-  const handlepassword = (e) => {
-    const newpassword = e.target.value;
-    setPassword(newpassword);
-  };
-
+function Page1() {
   return (
     <div>
-      <input type="text" value={username} onChange={handleUsername} />
-      <input type="password" value={password} onChange={handlepassword} />
+      <h1>page1</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur
+        quas similique quis, sequi ab quos suscipit! Culpa magnam esse eum?
+      </p>
+    </div>
+  );
+}
 
-      <h1>
-        {username} {password}
-      </h1>
-      <hr />
-
-      <h1>{username}</h1>
-      <hr />
+function Page2() {
+  return (
+    <div>
+      <h1>page2</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur
+        quas similique quis, sequi ab quos suscipit! Culpa magnam esse eum?
+      </p>
     </div>
   );
 }
