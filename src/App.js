@@ -1,107 +1,34 @@
-import { useState } from "react";
-import {
-  BrowserRouter,
-  Link,
-  Route,
-  Routes,
-  useNavigate,
-  useParams,
-  useLocation,
-} from "react-router-dom";
-
+import { Accordion } from "react-bootstrap";
 export default function App() {
-  let preLoginList = ["/", "/login", "/register", "/forget-password"];
-  let location = useLocation();
-
   return (
-    <>
-      {/** Link is Secondary */}
-      {preLoginList.includes(location.pathname) ? (
-        <div>
-          <Link to="/login">Login | </Link>
-          <Link to="/register">Register |</Link>
-        </div>
-      ) : (
-        <div>
-          <Link to="/welcome-home">Home | </Link>
-          <Link to="/explore">Expore | </Link>
-          <Link to="/messages">Messages </Link>
-        </div>
-      )}
-
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/forget-password" element={<ForgetPassword />} />
-
-        <Route path="/welcome-home" element={<WelcomeHome />} />
-        <Route path="/explore" element={<Explore />} />
-        <Route path="/messages" element={<Messages />} />
-      </Routes>
-    </>
-  );
-}
-
-function Login() {
-  // SPECIAL FUNCTION :: HOOKS :: use...
-  let navigate = useNavigate();
-
-  const authenticate = () => {
-    // ....
-    navigate("/welcome-home");
-  };
-
-  return (
-    <div>
-      <h1>Login Page</h1>
-      <div>
-        <div>
-          <input type="text" placeholder="Enter Username" />
-        </div>
-        <div>
-          <input type="password" placeholder="Enter Password" />
-        </div>
-        <div>
-          <input type="button" value="Login to App" onClick={authenticate} />
-        </div>
-        <Link to="/forget-password">Forget Password</Link>
-      </div>
+    <div className="">
+      <h1 className="bg-primary">hello</h1>
+      <Accordion defaultActiveKey="0">
+        <Accordion.Item eventKey="0">
+          <Accordion.Header>Accordion Item #1</Accordion.Header>
+          <Accordion.Body>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </Accordion.Body>
+        </Accordion.Item>
+        <Accordion.Item eventKey="1">
+          <Accordion.Header>Accordion Item #2</Accordion.Header>
+          <Accordion.Body>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </Accordion.Body>
+        </Accordion.Item>
+      </Accordion>
     </div>
   );
-}
-
-function Register() {
-  return <div>Reigster Page</div>;
-}
-
-function ForgetPassword() {
-  return (
-    <div>
-      <h1>UI For Forget Password</h1>
-    </div>
-  );
-}
-
-function WelcomeHome() {
-  let navigate = useNavigate();
-
-  const signOut = () => {
-    navigate("/login");
-  };
-
-  return (
-    <div>
-      <h1>Welcome home</h1>
-      <button onClick={signOut}>Sign Out</button>
-    </div>
-  );
-}
-
-function Explore() {
-  return <h1>Explore Page</h1>;
-}
-
-function Messages() {
-  return <h1>Messages Page</h1>;
 }
