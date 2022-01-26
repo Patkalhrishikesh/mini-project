@@ -1,28 +1,41 @@
-import logo from "./logo.svg";
-import "./App.css";
+import { useState } from "react";
 
-function App() {
+export default function App() {
   return (
     <div>
-      <Hello id="1" name="rahul" />
       <Hello />
-      <World name="virat" />
     </div>
   );
 }
 
-//jsx :: react componant
-// <hello/>
+function Hello() {
+  let counter = 1000;
+  const like = () => {
+    counter++;
+    console.log(counter);
+  };
+  //uses of hooks use stase;
 
-// Hello(1);
-//
-function Hello(p1) {
-  console.log(p1);
-  return <h1>hello ! {p1.name} </h1>;
+  let [counter1, setCounter1] = useState(100);
+
+  const like1 = () => {
+    const newCounter1 = counter1 + 1;
+    setCounter1(newCounter1);
+  };
+  // EVERY MOVEMENT CHANGING STATE CHANGING STATE
+  // RHS :: SPECIAL FUNCTION :: STARTWITH PREFIX USESTATE USEEFFECT
+  // USEsTATE :: IT WORK WITH DOM INTERNALLY
+  return (
+    <div>
+      <h1>
+        Counter : {counter}
+        <button onClick={like}>liKE</button>
+      </h1>
+
+      <h1>
+        Counter1 : {counter1}
+        <button onClick={like1}>liKE</button>
+      </h1>
+    </div>
+  );
 }
-
-function World(name, id) {
-  return <h1>world {name} </h1>;
-}
-
-export default App;
