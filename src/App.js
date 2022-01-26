@@ -4,74 +4,89 @@ import {
   Link,
   Route,
   Routes,
-  useLocation,
   useNavigate,
+  useParams,
+  useLocation,
 } from "react-router-dom";
 
 export default function App() {
-  let preloginlist
+  let preLoginList = ["/", "/login", "/register"];
   let location = useLocation();
 
   return (
     <>
-      <div>
-        <Link to="/">Login page</Link>
-        <Link to="/Register">Register page</Link>
-      </div>
+      {/** Link is Secondary */}
 
-      <div>
-        <Link to="/welcome-home">home |</Link>
-        <Link to="/welcome-home">exploerr |</Link>
-        <Link to="/welcome-home">message |</Link>
-      </div>
+      {preLoginList.includes(location.pathname) && (
+        <div>
+          <Link to="/login">Login | </Link>
+          <Link to="/register">Register |</Link>
+        </div>
+      )}
+
+      {!preLoginList.includes(location.pathname) && (
+        <div>
+          <Link to="/welcome-home">Home | </Link>
+          <Link to="/welcome-home">Expore | </Link>
+          <Link to="/welcome-home">Messages </Link>
+        </div>
+      )}
+
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/Register" element={<Register />} />
-        <Route path="/welcome-home" element={<Welcome />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
+        <Route path="/welcome-home" element={<WelcomeHome />} />
+        <Route path="/explore" element={<WelcomeHome />} />
+        <Route path="/messages" element={<WelcomeHome />} />
       </Routes>
     </>
   );
 }
 
 function Login() {
+  // SPECIAL FUNCTION :: HOOKS :: use...
   let navigate = useNavigate();
-  const authantication = () => {
+
+  const authenticate = () => {
+    // ....
     navigate("/welcome-home");
   };
 
   return (
     <div>
-      <h1>login page</h1>
+      <h1>Login Page</h1>
       <div>
-        <input type="text" placeholder="enter Username" />
-      </div>
-      <div>
-        <input type="password" placeholder="enter password" />
-      </div>
-      <div>
-        <input type="button" value="login" onClick={authantication} />
+        <div>
+          <input type="text" placeholder="Enter Username" />
+        </div>
+        <div>
+          <input type="password" placeholder="Enter Password" />
+        </div>
+        <div>
+          <input type="button" value="Login to App" onClick={authenticate} />
+        </div>
       </div>
     </div>
   );
 }
 
 function Register() {
-  return (
-    <div>
-      <h1>Register page........</h1>
-    </div>
-  );
+  return <div>Reigster Page</div>;
 }
 
-function Welcome() {
- 
+function WelcomeHome() {
   let navigate = useNavigate();
-  console.log("locaton");
+
+  const signOut = () => {
+    navigate("/login");
+  };
 
   return (
     <div>
-      <h1>welcome home</h1>
+      <h1>Welcome home</h1>
+      <button onClick={signOut}>Sign Out</button>
     </div>
   );
 }
