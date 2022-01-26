@@ -6,7 +6,7 @@ function App() {
     <div>
       <Hello id="1" name="rahul" />
       <Hello />
-      <World />
+      <World name="virat" />
     </div>
   );
 }
@@ -21,8 +21,8 @@ function Hello(p1) {
   return <h1>hello ! {p1.name} </h1>;
 }
 
-function World() {
-  return <h1>world </h1>;
+function World(name, id) {
+  return <h1>world {name} </h1>;
 }
 
 export default App;
