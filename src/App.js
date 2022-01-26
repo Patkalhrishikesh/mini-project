@@ -46,7 +46,7 @@ export default function App() {
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="holder.js/800x400?text=First slide&bg=373940"
+              src="https://picsum.photos/200/100/?blur=2"
               alt="First slide"
             />
             <Carousel.Caption>
@@ -57,7 +57,7 @@ export default function App() {
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="holder.js/800x400?text=Second slide&bg=282c34"
+              src="https://picsum.photos/seed/picsum/200/100"
               alt="Second slide"
             />
 
