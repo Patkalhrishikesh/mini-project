@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { BrowserRouter } from "react-router-dom";
 
 export default function App() {
   return (
     <div>
-      <Page1 />
-      <Page2 />
+      <BrowserRouter>
+        <Page1 />
+        <Page2 />
+      </BrowserRouter>
     </div>
   );
 }
